@@ -1,15 +1,4 @@
 "use strict";
-var __assign = (this && this.__assign) || function () {
-    __assign = Object.assign || function(t) {
-        for (var s, i = 1, n = arguments.length; i < n; i++) {
-            s = arguments[i];
-            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
-                t[p] = s[p];
-        }
-        return t;
-    };
-    return __assign.apply(this, arguments);
-};
 var __rest = (this && this.__rest) || function (s, e) {
     var t = {};
     for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
@@ -133,7 +122,7 @@ obj1.disp(p2);
 var _a = { x: 1, y: 2, a: 3, b: 4 }, x = _a.x, y = _a.y, z = __rest(_a, ["x", "y"]);
 console.log(z);
 //spread parameter
-var n = __assign({ x: x, y: y }, z);
+var n = { x: x, y: y, z: z };
 console.log(n);
 //practice of the spread parameters
 var parentArray = [[1], [2]];

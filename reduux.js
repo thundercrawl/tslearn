@@ -9,24 +9,16 @@ var __assign = (this && this.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
-var __spreadArrays = (this && this.__spreadArrays) || function () {
-    for (var s = 0, i = 0, il = arguments.length; i < il; i++) s += arguments[i].length;
-    for (var r = Array(s), k = 0, i = 0; i < il; i++)
-        for (var a = arguments[i], j = 0, jl = a.length; j < jl; j++, k++)
-            r[k] = a[j];
-    return r;
-};
 var todos = function (state, action) {
     if (state === void 0) { state = []; }
     switch (action.type) {
         case 'ADD_TODO':
-            return __spreadArrays(state, [
-                {
-                    id: action.id,
-                    text: action.text,
-                    completed: false
-                }
-            ]);
+            return;
+            ({
+                id: action.id,
+                text: action.text,
+                completed: false
+            });
         case 'TOGGLE_TODO':
             return state.map(function (todo) {
                 if (todo.id !== action.id) {
@@ -34,20 +26,32 @@ var todos = function (state, action) {
                 }
                 return __assign(__assign({}, todo), { completed: !todo.completed });
             });
+        default:
+            return state;
     }
 };
 var talkMsg = function (state, action) {
     if (state === void 0) { state = []; }
     switch (action.type) {
-        case 'ADD':
+        case 'MSG_ADD':
             state.push(action.msg);
             return state;
-        case 'REMOVE':
+        case 'MSG_REMOVE':
             state.pop();
             return state;
         default:
             return state;
     }
+};
+var reducerPorducer = function (reducers) {
+    console.log('list reducers:', reducers);
+    return function (state, action) {
+        if (state === void 0) { state = {}; }
+        return Object.keys(reducers).reduce(function (preFnt, nextFnt) {
+            console.log('state:', state);
+            return reducers[nextFnt](state, action);
+        }, {});
+    };
 };
 var rt = talkMsg([], { type: 'ADD', msg: 'hello john' });
 console.log(rt);
@@ -62,6 +66,11 @@ var o = {
     c: { value: 3 }
 };
 var a = Object.keys(o).reduce(function (previous, key) {
+    console.log(previous, key, o[key].value);
     return previous + o[key].value;
 }, 0);
+console.log(Object.keys(o));
 console.log(a);
+console.log(reducerPorducer({ todos: todos, talkMsg: talkMsg }));
+var f1 = reducerPorducer({ todos: todos, talkMsg: talkMsg });
+console.log(f1({ name: 'hi' }, { type: 'ADD_TOD' }));

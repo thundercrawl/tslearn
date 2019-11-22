@@ -5,8 +5,17 @@ const method = {
         console.log()
     }
 }
+class Greeter {
+    greeting: string;
+    constructor(message: string) {
+        this.greeting = message;
+    }
+    greet() {
+        return "Hello, " + this.greeting;
+    }
+}
 class Properties {
-    properties: string[]
+    properties: string[];
     constructor(pros: string[]) {
         this.properties = pros;
     }
@@ -43,11 +52,10 @@ var person = {
     },
     properties:
     {
-        props:['car','tank'],
-        fullprop:()=>
-        {
+        props: ['car', 'tank'],
+        fullprop: () => {
             let fullprop = ''
-            this.properties.props.map((x)=>(fullprop+=fullprop+x))
+            this.properties.props.map((x) => (fullprop += fullprop + x))
         }
     }
 };

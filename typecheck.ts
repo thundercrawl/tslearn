@@ -2,20 +2,20 @@ function log(...obj)
 {
     console.log(obj)
 }
-type Person={
+type PersonA={
     name:string,
     gender:string,
     age:number,
 }
-class Personc
+class PersonC
 {}
-let p1:Person={
+let p1:PersonA={
     name:'jimmy',
     gender:'male',
     age:20,
 };
-let p2:Personc = new Personc();
+let p2:PersonC = new PersonC();
 log(typeof (()=>{}))
 log(typeof p1 )
 log(typeof p2)
-log(typeof Personc)
+log(typeof PersonC)

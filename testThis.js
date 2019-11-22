@@ -5,6 +5,15 @@ var method = {
         console.log();
     }
 };
+var Greeter = /** @class */ (function () {
+    function Greeter(message) {
+        this.greeting = message;
+    }
+    Greeter.prototype.greet = function () {
+        return "Hello, " + this.greeting;
+    };
+    return Greeter;
+}());
 var Properties = /** @class */ (function () {
     function Properties(pros) {
         this.properties = pros;
@@ -46,4 +55,3 @@ var person = {
     }
 };
 //console.log(person.fullName(),person.properties.fullprop())
-console.log(this);

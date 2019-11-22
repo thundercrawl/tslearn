@@ -5,19 +5,18 @@ function log() {
     }
     console.log(obj);
 }
-var Personc = /** @class */ (function () {
-    function Personc() {
+var PersonC = /** @class */ (function () {
+    function PersonC() {
     }
-    return Personc;
+    return PersonC;
 }());
 var p1 = {
     name: 'jimmy',
     gender: 'male',
     age: 20
 };
-var p2 = new Personc();
+var p2 = new PersonC();
 log(typeof (function () { }));
 log(typeof p1);
 log(typeof p2);
-log(typeof Personc);
-log(typeof a);
+log(typeof PersonC);

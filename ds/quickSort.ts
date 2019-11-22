@@ -1,7 +1,7 @@
-let FuncType:(pre:any,next:any)=>{}
-type DateItemType<T,FuncType>={
+type FuncType<T>=(pre:T,next:T)=>boolean;
+type DateItemType<T>={
     data:T,
-    compare(item:DateItemType<T>):boolean
+    compare:FuncType,
 }
 
 class QuickSort<DateItemType>
@@ -21,7 +21,7 @@ class QuickSort<DateItemType>
     }
 
 }
-const _Compare_str=(item:DateItemType<string>):boolean=>
+const _Compare_str=(item:DateItemType<string,FuncType>):boolean=>
     {
         if(item.data)
         return true;

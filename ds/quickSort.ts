@@ -31,6 +31,7 @@ class QuickSort<DateItemType>
             console.log('reach end exit',first,end)
             return;
         }
+        let mid:number = Math.trunc((first+end)/2)
         
         this.binsort(first,Math.trunc((end-first)/2));
         this.binsort(Math.trunc((end-first)/2+1),end);

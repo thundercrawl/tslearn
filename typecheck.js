@@ -16,6 +16,7 @@ var p1 = {
     age: 20
 };
 var p2 = new PersonC();
+log(state['jimmy']);
 log(typeof (function () { }));
 log(typeof p1);
 log(typeof p2);

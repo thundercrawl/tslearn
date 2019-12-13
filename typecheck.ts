@@ -15,6 +15,9 @@ let p1:PersonA={
     age:20,
 };
 let p2:PersonC = new PersonC();
+
+
+log(state['jimmy'])
 log(typeof (()=>{}))
 log(typeof p1 )
 log(typeof p2)
